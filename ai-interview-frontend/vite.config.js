@@ -1,0 +1,21 @@
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig({
+  plugins: [vue()],
+  server: {
+    port: 3000,
+    proxy: {
+      '/api': {
+        // TODO: 改成你自己 VM 的 IP 地址
+        target: 'https://46da05c89de04c3ea5872092018596ef--8006.ap-shanghai2.cloudstudio.club/',
+        changeOrigin: true
+      },
+      '/uploads': {
+        // TODO: 改成你自己 VM 的 IP 地址
+        target: 'https://46da05c89de04c3ea5872092018596ef--8006.ap-shanghai2.cloudstudio.club/',
+        changeOrigin: true
+      }
+    }
+  }
+})
