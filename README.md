@@ -23,6 +23,56 @@ ai-interview/
 - 👤 用户注册登录（JWT 认证）
 - 🛠 后台管理系统（用户管理、面试记录查看、数据统计）
 
+## 项目分析与学习指南
+
+如果你基础比较弱，可以先把这个项目理解成一条完整的“AI 面试流水线”：
+
+```
+用户上传简历 → AI 解析简历 → AI 生成题目 → 多轮面试问答 → AI 评分 → 面试报告
+```
+
+### 项目由哪几部分组成？
+
+| 子项目 | 作用 | 技术 |
+|--------|------|------|
+| `ai-interview-backend/` | 后端 API 服务 | Python + FastAPI |
+| `ai-interview-frontend/` | 用户端网页 | Vue 3 + Vite |
+| `ai-interview-admin/` | 管理后台网页 | Vue 3 + Vite |
+
+### 后端核心模块
+
+- `app/api/`：接口入口，负责接收请求和返回响应
+- `app/services/`：业务逻辑层，真正处理 AI、面试、简历等核心功能
+- `app/models/`：数据库表定义
+- `app/core/`：配置、认证、基础能力
+- `app/route/`：路由注册中心
+
+### 建议学习顺序
+
+1. 先学 Python 基础，重点看 `async/await`
+2. 再学 FastAPI，理解“接口、路由、请求、响应”
+3. 按顺序看代码：`main.py` → `router_registry.py` → `auth.py` → `ai_service.py`
+4. 先把项目跑起来，再用 Postman/curl 调接口
+5. 从最简单的改动开始：改返回值、改 Prompt、加一个小接口
+
+### 学习重点
+
+- **AI 核心**：`app/services/client/ai_service.py`
+- **面试流程**：`app/services/client/interview_service.py`
+- **简历处理**：`app/services/client/resume_service.py`
+- **认证登录**：`app/services/client/auth.py`
+- **路由管理**：`app/route/router_registry.py`
+
+### 你可以重点掌握的知识
+
+- REST API 是什么
+- JWT 登录认证怎么做
+- SQLAlchemy ORM 怎么操作数据库
+- SSE 流式输出怎么工作
+- Docker Compose 怎么启动整套服务
+
+详细学习版说明见：[`LEARNING_GUIDE.md`](./LEARNING_GUIDE.md)
+
 ## 技术栈
 
 | 模块 | 技术 |
@@ -35,6 +85,8 @@ ai-interview/
 | 异步任务 | Celery（Worker + Beat） |
 | ORM | SQLAlchemy 2.0（异步 + asyncpg） |
 | 容器化 | Docker + Docker Compose |
+| 认证 | JWT |
+| 实时通信 | SSE |
 
 ## 快速开始
 
