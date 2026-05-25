@@ -9,6 +9,7 @@ ai-interview/
 ├── ai-interview-backend/       # 后端（FastAPI + Docker 部署）
 ├── ai-interview-frontend/      # 用户端前端（Vue 3 + Vite）
 ├── ai-interview-admin/         # 后台管理前端（Vue 3 + Vite）
+├── LEARNING_GUIDE.md           # 项目学习指南
 ├── 部署文档.md                  # 详细部署文档
 └── README.md                   # 本文件
 ```
